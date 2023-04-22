@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
-import Layout from "../components/Layout";
+import Layout, { siteTitle } from "../components/Layout";
 import utilStyle from "../styles/utils.module.css";
 import styleHome from "../styles/Home.module.css";
 import { getPostData } from "@/lib/post";
@@ -10,7 +10,6 @@ import { getPostData } from "@/lib/post";
 // SSG
 export async function getStaticProps() {
   const allPostData = getPostData();
-  console.log(allPostData);
   return {
     props: {
       allPostData,
@@ -30,6 +29,9 @@ export async function getStaticProps() {
 export default function Home({ allPostData }) {
   return (
     <>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
       <Layout home={true}>
         <section className={utilStyle.headingMd}>
           <p>Next.jsを学んでいます！</p>

@@ -9,7 +9,6 @@ const postsDirectory = path.join(process.cwd(), "src/posts");
 // mdファイルのデータ取得
 export function getPostData() {
   const filename = fs.readdirSync(postsDirectory);
-  console.log(filename);
   const allPostData = filename.map((fn) => {
     const id = fn.replace(/\.md$/, "");
     const fullPath = path.join(postsDirectory, fn);
